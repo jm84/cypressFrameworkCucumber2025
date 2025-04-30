@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate-report": "npx multiple-cucumber-html-reporter --report-dir cypress/reports --json-dir cypress/cucumber-json --report-name cucumber-report.html",
-    "runAllFeaturesDEV": "ENV=DEV cypress run --headed --browser chrome --spec 'cypress/e2e/**/*.feature'"
+    "runAllFeaturesDEV": "cypress run --headed --browser chrome --spec 'cypress/e2e/**/*.feature'"
   },
   "author": "juan molina",
   "license": "ISC",
@@ -21,20 +21,14 @@
     "stepDefinitions": "cypress/support/step_definitions/**/*.js",
     "html": {
       "enabled": true,
-      "output": "cypress/reports/cucumber-html-report.html",
-      "options": {
-        "theme": "bootstrap",
-        "json": {
-          "enabled": true,
-          "output": "cypress/cucumber-json"
-        },
-        "reportTitle": "Cypress Cucumber Report 1",
-        "reportName": "Cypress Cucumber Report2",
-        "displayDuration": true,
-        "displayReportTime": true,
-        "displayDurationInSeconds": true
+      "output": "cypress/reports/cucumber-html-report.html"
+    },
+    
+    "json": {
+        "enabled": true,
+        "output": "cypress/cucumberReports/cucumber-report.json"
       }
-    }
+    
   },
   "dependencies": {
     "dotenv": "^16.5.0"
